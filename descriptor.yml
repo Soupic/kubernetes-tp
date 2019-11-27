@@ -28,22 +28,13 @@ spec:
     - "bash"
     - "-c"
     - "sleep infinity"
----
-apiVersion: v1
-kind: Pod
-metadata: 
-  name: database-pod
-  labels:
-    app: k8s-tp
-spec:
-  containers:
   - name: database-container
     image: mysql:latest
     env:
       - name: "MYSQL_USER"
         value: "root"
       - name: "MYSQL_PASSWORD"
-        value: ""
+        value: "imie"
       - name: "MYSQL_DATABASE"
         value: "vote-base"
       - name: "MYSQL_ROOT_PASSWORD"
