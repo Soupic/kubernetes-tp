@@ -1,0 +1,52 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: front-pod
+  labels:
+    app: k8s-tp
+spec:
+  containers:
+  - name: front-container
+    image: httpd:latest
+    command:
+    - "bash"
+    - "-c"
+    - "sleep infinity"
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: back-pod
+  labels:
+   app: k8s-tp
+spec:
+  containers:
+  - name: back-container
+    image: bitnami/symfony:latest
+    command:
+    - "bash"
+    - "-c"
+    - "sleep infinity"
+---
+apiVersion: v1
+kind: Pod
+metadata: 
+  name: database-pod
+  labels:
+    app: k8s-tp
+spec:
+  containers:
+  - name: database-container
+    image: mysql:latest
+    env:
+      - name: "MYSQL_USER"
+        value: "root"
+      - name: "MYSQL_PASSWORD"
+        value: ""
+      - name: "MYSQL_DATABASE"
+        value: "vote-base"
+      - name: "MYSQL_ROOT_PASSWORD"
+        value: "supersecret"
+    ports:
+      - containerPort: 3306
