@@ -1,6 +1,8 @@
+# Ingress est un service permétant de faire le routing
 kind: Ingress
 apiVersion: extensions/v1beta1
 metadata:
+# Nom du service de routing vers le back end (pour l'api)
   name: traefik-ingress-back
   annotations:
     kubernetes.io/ingress.class: traefik
@@ -8,11 +10,15 @@ metadata:
     traefik.frontend.priority: "2"
 spec:
   rules:
+  # Protocol à utiliser
   - http:
       paths:
+      # Route à utiliser pour aller vers le back end
       - path: /api
         backend:
+        # Nom du service de redirection
           serviceName: api-svc
+          # Port de redirection
           servicePort: 9000
 ---
 apiVersion: extensions/v1beta1
@@ -27,7 +33,10 @@ spec:
   rules:
   - http:
       paths:
+      # Route à utiliser pour aller vers le front end
       - path: /
         backend:
+        # Nom du service de redirection
           serviceName: front-svc
+          # Port de redirection
           servicePort: 80
