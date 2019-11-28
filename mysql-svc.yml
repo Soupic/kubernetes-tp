@@ -1,0 +1,13 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mysql-svc
+spec:
+  selector:
+    app: k8s-tp
+    name: database
+  ports:
+  - protocol: TCP
+    port: 3306
+    targetPort: 3306
