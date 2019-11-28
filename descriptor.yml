@@ -4,6 +4,7 @@ metadata:
   name: front-pod
   labels:
     app: k8s-tp
+    name: front
 spec:
   containers:
   - name: front-container
@@ -19,6 +20,7 @@ metadata:
   name: back-pod
   labels:
    app: k8s-tp
+   name: back
 spec:
   containers:
   - name: back-container
