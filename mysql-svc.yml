@@ -2,9 +2,11 @@
 kind: Service
 apiVersion: v1
 metadata:
+  # Nom du service
   name: mysql-svc
 spec:
   selector:
+    #  Label du pod de redirection (nom présent dans le descriptor.yml)
     app: k8s-tp
     name: database
   ports:
