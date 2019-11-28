@@ -1,0 +1,33 @@
+kind: Ingress
+apiVersion: extensions/v1beta1
+metadata:
+  name: traefik-ingress-back
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.passHostHeader: "false"
+    traefik.frontend.priority: "2"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /api/
+        backend:
+          serviceName: api-svc
+          servicePort: 9000
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-ingress-front
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.frontend.passHostHeader: "false"
+    traefik.frontend.priority: "1"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: front-pod
+          servicePort: 80

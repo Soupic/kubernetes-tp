@@ -8,7 +8,7 @@ metadata:
 spec:
   containers:
   - name: front-container
-    image: httpd:latest
+    image: killianndev/docker-apache-example
     command:
     - "bash"
     - "-c"
@@ -51,7 +51,7 @@ spec:
       - name: "MYSQL_PASSWORD"
         value: "imie"
       - name: "MYSQL_DATABASE"
-        value: "vote-base"
+        value: "vote-db"
       - name: "MYSQL_ROOT_PASSWORD"
         value: "supersecret"
     ports:
