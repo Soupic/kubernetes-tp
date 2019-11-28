@@ -1,13 +1,18 @@
 ---
+# Service permétant de faire la redirection vers le pod back end
 kind: Service
 apiVersion: v1
 metadata:
+  # Nom du service
   name: api-svc
 spec:
   selector:
+    #  Label du pod de redirection (nom présent dans le descriptor.yml)
     app: k8s-tp
     name: back
   ports:
   - protocol: TCP
+    # Port d'entré (tout ce qui arrive de n'importe quel pod)
     port: 80
+    # Port de redirection, uniquement destiné au pod indiqué via le selecteur
     targetPort: 80

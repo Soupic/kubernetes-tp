@@ -1,4 +1,5 @@
 ---
+# Service permétant de faire la redirection vers le pod mysql
 kind: Service
 apiVersion: v1
 metadata:
@@ -11,5 +12,7 @@ spec:
     name: database
   ports:
   - protocol: TCP
+    # Port d'entré (tout ce qui arrive de n'importe quel pod)
     port: 3306
+    # Port de redirection, uniquement destiné au pod indiqué via le selecteur
     targetPort: 3306
