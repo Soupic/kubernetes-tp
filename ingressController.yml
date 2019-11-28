@@ -10,7 +10,7 @@ spec:
   rules:
   - http:
       paths:
-      - path: /api/
+      - path: /api
         backend:
           serviceName: api-svc
           servicePort: 9000
@@ -29,5 +29,5 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: front-pod
+          serviceName: front-svc
           servicePort: 80

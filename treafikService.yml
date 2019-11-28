@@ -14,4 +14,3 @@ spec:
     - port: 8080
       name: admin
   type: LoadBalancer
-  loadBalancerIP: 35.240.58.194
