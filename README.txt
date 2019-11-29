@@ -11,12 +11,13 @@ Application de votes entre une catapulte ou un tébuchet
 
 3 - Création d'un service mysql étant charger de rediriger toutes les arrivées sur le port 3306 vers le port 3306 du pod mysql (voir fichier mysql-svc.yml)
 
-4 - Création d'un service api servant à rediriger toutes les arrivées du port 80 vers le port 80 du pod back end (voir fichier api-svc.yml)
+4 - Création d'un service api servant à rediriger toutes les arrivées du port 80 vers le port 80 du pod back end port 80 (voir fichier api-svc.yml)
 
-5 - Création d'un service front servant à rediriger ce qui nous arrive de l'exterieur du port 80 vers le pod front end (voir fichier front-svc.yml)
+5 - Création d'un service front servant à rediriger ce qui nous arrive de l'exterieur du port 80 vers le pod front end port 80 (voir fichier front-svc.yml)
 
 6 - Utilisation de Ingress ce service rendra accessible notre application depuis l'extérieur
     Il faut installer un controlleur pour ce faire on à utilisé Traefik
         utilisation de ce tuto : https://blog.zenika.com/2018/04/27/traefik-comme-reverse-proxy-sur-gke/
         a partir de la partie : Création des autorisations pour Traefik
+        (NE PAS METTRE D'IP FIXE comme indiquer dans le tuto, laissé kubernetes gérer l'IP extérieur)
 
